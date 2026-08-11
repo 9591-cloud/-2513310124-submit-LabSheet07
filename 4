@@ -1,0 +1,55 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class QueueRotate {
+
+    public static Queue<Integer> originalQueue() {
+
+        Queue<Integer> queue = new LinkedList<>();
+
+        for (int i = 101; i <= 107; i++) {
+            queue.offer(i);
+        }
+
+        return queue;
+    }
+
+    public static void rotateQueue(Queue<Integer> queue) {
+
+        int first = queue.poll();
+
+        queue.offer(first);
+
+        System.out.println("Calling queue: " + first);
+        System.out.println("Queue => " + queue);
+    }
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        Queue<Integer> queue = originalQueue();
+
+        System.out.println("Queue => " + queue);
+
+        while (true) {
+
+            System.out.print("\nPress 1 to rotate queue: ");
+
+            int choice = scanner.nextInt();
+
+            if (choice == 1) {
+
+                rotateQueue(queue);
+
+            } else {
+
+                System.out.println("Exit");
+                break;
+            }
+        }
+
+        scanner.close();
+    }
+}
